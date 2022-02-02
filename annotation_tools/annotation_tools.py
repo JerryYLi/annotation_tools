@@ -51,16 +51,16 @@ def edit_image(image_id):
   annotations = json_util.dumps(annotations)
   categories = json_util.dumps(categories)
 
-  if request.is_xhr:
-    # Return just the data
-    return jsonify({
-      'image' : json.loads(image),
-      'annotations' : json.loads(annotations),
-      'categories' : json.loads(categories)
-    })
-  else:
-    # Render a webpage to edit the annotations for this image
-    return render_template('edit_image.html', image=image, annotations=annotations, categories=categories)
+  # if request.is_xhr:
+  #   # Return just the data
+  #   return jsonify({
+  #     'image' : json.loads(image),
+  #     'annotations' : json.loads(annotations),
+  #     'categories' : json.loads(categories)
+  #   })
+  # else:
+  #   # Render a webpage to edit the annotations for this image
+  return render_template('edit_image.html', image=image, annotations=annotations, categories=categories)
 
 @app.route('/edit_task/')
 def edit_task():
